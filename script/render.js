@@ -31,6 +31,7 @@ function renderLoop(){
       renderLoopEntities.forEach(n => {
          // if(Math.abs(n.faces.sort((a, b) => (b.dAvg) - (a.dAvg))[0].zAvg) < d) n.render();
          n.render();
+         // alert('a');
       });
       
       
