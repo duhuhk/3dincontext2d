@@ -20,8 +20,9 @@ class Ball{
       let tFou = 1 / 4;
       let tSix = 1 / 6;
       
-      let faceColor = 'rgb(255, 0, 255)';
-      let faceShade = [100, 100, 100];
+      let faceColor = 'rgb(180, 130, 100)';
+      // faceColor = errTxrStr;
+      let faceShade = [20, 20, 20];
       
       let AAA = new Vertex(this.c, this.r, 0, tHal * pi * -1);
       let AAB = new Vertex(this.c, this.r, 0, tHal * pi);
@@ -66,7 +67,7 @@ class Ball{
       
       for(let i = 0; i < topRow.length; i++){
          let j = i + 1 == topRow.length ? 0 : i + 1;
-         this.faces.push(new LegacyFace([AAA, topRow[i], topRow[j]], this.c, errTxrStr(), faceShade));
+         this.faces.push(new LegacyFace([AAA, topRow[i], topRow[j]], this.c, faceColor, faceShade));
       }
       getErrTexture();
       
@@ -81,10 +82,10 @@ class Ball{
             
             // More faces, horrible performance, same result
             // just looks ever so slightly cooler
-            // this.faces.push(new LegacyFace([vertices[i][j], vertices[ya][xa], vertices[yb][xb]], this.c, errTxrStr(), faceShade));
-            // this.faces.push(new LegacyFace([vertices[i][j], vertices[ya][xa], vertices[yc][xc]], this.c, errTxrStr(), faceShade));
+            // this.faces.push(new LegacyFace([vertices[i][j], vertices[ya][xa], vertices[yb][xb]], this.c, faceColor, faceShade));
+            // this.faces.push(new LegacyFace([vertices[i][j], vertices[ya][xa], vertices[yc][xc]], this.c, faceColor, faceShade));
             
-            this.faces.push(new LegacyFace([vertices[i][j], vertices[ya][xa], vertices[ya][xb], vertices[yb][xb]], this.c, errTxrStr(), faceShade));
+            this.faces.push(new LegacyFace([vertices[i][j], vertices[ya][xa], vertices[ya][xb], vertices[yb][xb]], this.c, faceColor, faceShade));
             // hecto-enneaconta-di-hedron myeeeh myeeeh
          }
          getErrTexture();
@@ -92,7 +93,7 @@ class Ball{
       
       for(let i = 0; i < botRow.length; i++){
          let j = i + 1 == botRow.length ? 0 : i + 1;
-         this.faces.push(new LegacyFace([AAB, botRow[i], botRow[j]], this.c, errTxrStr(), faceShade));
+         this.faces.push(new LegacyFace([AAB, botRow[i], botRow[j]], this.c, faceColor, faceShade));
       }
       
       /*
@@ -104,63 +105,63 @@ class Ball{
    }
    handleInput(){
       if(getInput('ArrowLeft')){
-         this.x -= 1;
-         this.c.x -= 1;
+         this.x -= 1 * fps.dt;
+         this.c.x -= 1 * fps.dt;
       }
       if(getInput('ArrowRight')){
-         this.x += 1;
-         this.c.x += 1;
+         this.x += 1 * fps.dt;
+         this.c.x += 1 * fps.dt;
       }
       if(getInput('ArrowUp')){
-         this.y -= 1;
-         this.c.y -= 1;
+         this.y -= 1 * fps.dt;
+         this.c.y -= 1 * fps.dt;
       }
       if(getInput('ArrowDown')){
-         this.y += 1;
-         this.c.y += 1;
+         this.y += 1 * fps.dt;
+         this.c.y += 1 * fps.dt;
       }
       if(getInput('Period')){
-         this.t.h += 1 / (10 * Math.PI);
+         this.t.h += 1 * fps.dt / (10 * Math.PI);
          this.t.h %= 2 * Math.PI;
          this.t.h < 0 ? this.t.h += 2 * Math.PI : null;
          this.c.h = this.t.h;
       }
       if(getInput('Comma')){
-         this.t.h -= 1 / (10 * Math.PI);
+         this.t.h -= 1 * fps.dt / (10 * Math.PI);
          this.t.h %= 2 * Math.PI;
          this.t.h < 0 ? this.t.h += 2 * Math.PI : null;
          this.c.h = this.t.h;
       }
       if(getInput('KeyS')){
-         this.z += 1;
-         this.c.z += 1;
+         this.z += 1 * fps.dt;
+         this.c.z += 1 * fps.dt;
       }
       if(getInput('KeyW')){
-         this.z -= 1;
-         this.c.z -= 1;
+         this.z -= 1 * fps.dt;
+         this.c.z -= 1 * fps.dt;
       }
       if(getInput('KeyA')){
-         this.t.h -= 1 / (5 * Math.PI);
+         this.t.h -= 1 * fps.dt / (5 * Math.PI);
          this.t.h %= 2 * Math.PI;
          this.t.h < 0 ? this.t.h += 2 * Math.PI : null;
          this.c.h = this.t.h;
-         this.x -= 1;
-         this.c.x -= 1;
+         this.x -= 1 * fps.dt;
+         this.c.x -= 1 * fps.dt;
       }
       if(getInput('KeyD')){
          this.t.h += 1 / (5 * Math.PI);
          this.t.h %= 2 * Math.PI;
          this.t.h < 0 ? this.t.h += 2 * Math.PI : null;
          this.c.h = this.t.h;
-         this.x += 1;
-         this.c.x += 1;
+         this.x += 1 * fps.dt;
+         this.c.x += 1 * fps.dt;
       }
       
       if(getInput('BracketLeft')){
-         this.c.v -= 1 / (Math.PI * 20);
+         this.c.v -= 1 * fps.dt / (Math.PI * 20);
       }
       if(getInput('BracketRight')){
-         this.c.v += 1 / (Math.PI * 20);
+         this.c.v += 1 * fps.dt / (Math.PI * 20);
       }
    }
    queueRender(){
@@ -173,7 +174,7 @@ class Ball{
       
       this.faces.sort((a, b) => (b.renderBias) - (a.renderBias));
       // this.faces.sort((a, b) => (b.renderBias) - (a.renderBias));
-      this.faces.forEach(f => f != null ? f.render(0b00, true, (this.faces.length - this.faces.indexOf(f)) / this.faces.length * 15) : null);
+      this.faces.forEach(f => f != null ? f.render(0b00, true, (this.faces.length - this.faces.indexOf(f)) / this.faces.length * 10) : null);
       log((this.c.v / Math.PI).toFixed(2) + 'π');
    }
 }

@@ -6,10 +6,14 @@ function log(str){
 
 // Handling FPS data
 var fps = {
+   target: 60,
    frames: [0],
    get now(){
       // return 1000 / ((fps.frames.reduce((a, b) => a + b) / fps.frames.length));
       return Math.floor(1000 / ((fps.frames[fps.frames.length - 1] - fps.frames[0]) / fps.frames.length));
+   },
+   get dt(){
+      return fps.target / fps.now;
    },
    add: function(t){
       if(fps.frames.length > 59) fps.frames.splice(0, fps.frames.length - 59);

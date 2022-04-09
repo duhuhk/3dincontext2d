@@ -85,63 +85,63 @@ class Block{
    }
    handleInput(){
       if(getInput('ArrowLeft')){
-         this.x -= 1;
-         this.c.x -= 1;
+         this.x -= 1 * fps.dt;
+         this.c.x -= 1 * fps.dt;
       }
       if(getInput('ArrowRight')){
-         this.x += 1;
-         this.c.x += 1;
+         this.x += 1 * fps.dt;
+         this.c.x += 1 * fps.dt;
       }
       if(getInput('ArrowUp')){
-         this.y -= 1;
-         this.c.y -= 1;
+         this.y -= 1 * fps.dt;
+         this.c.y -= 1 * fps.dt;
       }
       if(getInput('ArrowDown')){
-         this.y += 1;
-         this.c.y += 1;
+         this.y += 1 * fps.dt;
+         this.c.y += 1 * fps.dt;
       }
       if(getInput('Period')){
-         this.t.h += 1 / (10 * Math.PI);
+         this.t.h += 1 * fps.dt / (10 * Math.PI);
          this.t.h %= 2 * Math.PI;
          this.t.h < 0 ? this.t.h += 2 * Math.PI : null;
          this.c.h = this.t.h;
       }
       if(getInput('Comma')){
-         this.t.h -= 1 / (10 * Math.PI);
+         this.t.h -= 1 * fps.dt / (10 * Math.PI);
          this.t.h %= 2 * Math.PI;
          this.t.h < 0 ? this.t.h += 2 * Math.PI : null;
          this.c.h = this.t.h;
       }
       if(getInput('KeyS')){
-         this.z += 1;
-         this.c.z += 1;
+         this.z += 1 * fps.dt;
+         this.c.z += 1 * fps.dt;
       }
       if(getInput('KeyW')){
-         this.z -= 1;
-         this.c.z -= 1;
+         this.z -= 1 * fps.dt;
+         this.c.z -= 1 * fps.dt;
       }
       if(getInput('KeyA')){
-         this.t.h -= 1 / (5 * Math.PI);
+         this.t.h -= 1 * fps.dt / (5 * Math.PI);
          this.t.h %= 2 * Math.PI;
          this.t.h < 0 ? this.t.h += 2 * Math.PI : null;
          this.c.h = this.t.h;
-         this.x -= 1;
-         this.c.x -= 1;
+         this.x -= 1 * fps.dt;
+         this.c.x -= 1 * fps.dt;
       }
       if(getInput('KeyD')){
-         this.t.h += 1 / (5 * Math.PI);
+         this.t.h += 1 * fps.dt / (5 * Math.PI);
          this.t.h %= 2 * Math.PI;
          this.t.h < 0 ? this.t.h += 2 * Math.PI : null;
          this.c.h = this.t.h;
-         this.x += 1;
-         this.c.x += 1;
+         this.x += 1 * fps.dt;
+         this.c.x += 1 * fps.dt;
       }
       
       if(getInput('BracketLeft')){
-         this.c.v -= 1 / (Math.PI * 20);
+         this.c.v -= 1 * fps.dt / (Math.PI * 20);
       }
       if(getInput('BracketRight')){
-         this.c.v += 1 / (Math.PI * 20);
+         this.c.v += 1 * fps.dt / (Math.PI * 20);
       }
    }
    queueRender(){
