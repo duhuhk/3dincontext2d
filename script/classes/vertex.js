@@ -37,9 +37,6 @@ class Vertex{
       // return this.c.y - this.CORE_VALUES.y;
       // ^ Match pre-(d / (d +- z))-swap positional order (-c.z + z = -(c.z - z))
       
-      // this.CORE_VALUES.y = (this.r + this.c.y) * Math.sin(this.v - this.c.v);
-      // return this.CORE_VALUES.y - (this.CORE_VALUES.z * Math.sin(this.v - this.c.v));
-
       // return this.CORE_VALUES.y + this.c.y - (this.CORE_VALUES.z * Math.sin(this.v - this.c.v));
    }
    get z(){
@@ -48,9 +45,6 @@ class Vertex{
       // return this.c.z - this.CORE_VALUES.z;
       // ^ Match pre-(d / (d +- z))-swap positional order (-c.z + z = -(c.z - z))
       
-      // this.CORE_VALUES.z = ((this.r + this.c.z) * Math.cos(this.v - this.c.v) * Math.sin(this.h - this.c.h));
-      // return this.CORE_VALUES.z - (this.CORE_VALUES.y * Math.cos(this.v - this.c.v));
-
       // return this.CORE_VALUES.z + this.c.z - (this.CORE_VALUES.y * Math.cos(this.v - this.c.v));
    }
    set x(newx){

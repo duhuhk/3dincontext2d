@@ -16,7 +16,7 @@ function screenSetup(){
 
    setCSSVar('--log-font-size', String(defaultFontSize * dimMult) + 'px');
 
-   console.log('Resized screen (multiplier: ' + dimMult + ')');
+   // console.log('Resized screen (multiplier: ' + dimMult + ')');
 }
 
 window.onresize = screenSetup;
