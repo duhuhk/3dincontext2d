@@ -101,24 +101,40 @@ class Block{
          this.c.y += 1;
       }
       if(getInput('Period')){
-         this.t.h -= 1 / (10 * Math.PI);
-         this.t.h %= 2 * Math.PI;
-         this.t.h < 0 ? this.t.h += 2 * Math.PI : null;
-         this.c.h = this.t.h;
-      }
-      if(getInput('Comma')){
          this.t.h += 1 / (10 * Math.PI);
          this.t.h %= 2 * Math.PI;
          this.t.h < 0 ? this.t.h += 2 * Math.PI : null;
          this.c.h = this.t.h;
       }
+      if(getInput('Comma')){
+         this.t.h -= 1 / (10 * Math.PI);
+         this.t.h %= 2 * Math.PI;
+         this.t.h < 0 ? this.t.h += 2 * Math.PI : null;
+         this.c.h = this.t.h;
+      }
       if(getInput('KeyS')){
+         this.z += 1;
+         this.c.z += 1;
+      }
+      if(getInput('KeyW')){
          this.z -= 1;
          this.c.z -= 1;
       }
-      if(getInput('KeyW')){
-         this.z += 1;
-         this.c.z += 1;
+      if(getInput('KeyA')){
+         this.t.h -= 1 / (5 * Math.PI);
+         this.t.h %= 2 * Math.PI;
+         this.t.h < 0 ? this.t.h += 2 * Math.PI : null;
+         this.c.h = this.t.h;
+         this.x -= 1;
+         this.c.x -= 1;
+      }
+      if(getInput('KeyD')){
+         this.t.h += 1 / (5 * Math.PI);
+         this.t.h %= 2 * Math.PI;
+         this.t.h < 0 ? this.t.h += 2 * Math.PI : null;
+         this.c.h = this.t.h;
+         this.x += 1;
+         this.c.x += 1;
       }
       
       if(getInput('BracketLeft')){

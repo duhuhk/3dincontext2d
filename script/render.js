@@ -27,15 +27,19 @@ function renderLoop(){
    renderLoopEntityFaces = [];
    
    try{
+      
       renderLoopEntities.forEach(n => {
          // if(Math.abs(n.faces.sort((a, b) => (b.dAvg) - (a.dAvg))[0].zAvg) < d) n.render();
          n.render();
       });
+      
+      
       /*
       renderLoopEntities.forEach(n => n.queueRender());
-      renderLoopEntities.sort((a, b) => (b.dAvg) - (a.dAvg));
+      renderLoopEntityFaces.sort((a, b) => (a.renderBias) - (b.renderBias));
       renderLoopEntityFaces.forEach(n => n.render());
       */
+      
    }catch(err){
       log(err);
    }

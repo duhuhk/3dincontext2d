@@ -20,9 +20,8 @@ class Ball{
       let tFou = 1 / 4;
       let tSix = 1 / 6;
       
-      let faceColor = 'rgb(255, 255, 255)';
-      // let faceShade = [100, 100, 100];
-      let faceShade = [95,95,95];
+      let faceColor = 'rgb(255, 0, 255)';
+      let faceShade = [100, 100, 100];
       
       let AAA = new Vertex(this.c, this.r, 0, tHal * pi * -1);
       let AAB = new Vertex(this.c, this.r, 0, tHal * pi);
@@ -67,11 +66,11 @@ class Ball{
       
       for(let i = 0; i < topRow.length; i++){
          let j = i + 1 == topRow.length ? 0 : i + 1;
-         this.faces.push(new LegacyFace([AAA, topRow[i], topRow[j]], this.c, errTxrStr(), faceShade));
+         this.faces.push(new LegacyFace([AAA, topRow[i], topRow[j]], this.c, faceColor, faceShade));
       }
       getErrTexture();
       
-      /*for(let i = 0; i < vertices.length - 1; i++){
+      for(let i = 0; i < vertices.length - 1; i++){
          for(let j = 0; j < vertices[i].length; j++){
             let ya = (i + 1) % vertices.length;
             let xa = j;
@@ -85,15 +84,15 @@ class Ball{
             // this.faces.push(new LegacyFace([vertices[i][j], vertices[ya][xa], vertices[yb][xb]], this.c, faceColor, faceShade));
             // this.faces.push(new LegacyFace([vertices[i][j], vertices[ya][xa], vertices[yc][xc]], this.c, faceColor, faceShade));
             
-            this.faces.push(new LegacyFace([vertices[i][j], vertices[ya][xa], vertices[ya][xb], vertices[yb][xb]], this.c, errTxrStr(), faceShade));
+            this.faces.push(new LegacyFace([vertices[i][j], vertices[ya][xa], vertices[ya][xb], vertices[yb][xb]], this.c, faceColor, faceShade));
             // hecto-enneaconta-di-hedron myeeeh myeeeh
          }
          getErrTexture();
-      }*/
+      }
       
       for(let i = 0; i < botRow.length; i++){
          let j = i + 1 == botRow.length ? 0 : i + 1;
-         this.faces.push(new LegacyFace([AAB, botRow[i], botRow[j]], this.c, errTxrStr(), faceShade));
+         this.faces.push(new LegacyFace([AAB, botRow[i], botRow[j]], this.c, faceColor, faceShade));
       }
       
       /*
@@ -121,27 +120,27 @@ class Ball{
          this.c.y += 1;
       }
       if(getInput('Period')){
-         this.t.h -= 1 / (10 * Math.PI);
+         this.t.h += 1 / (10 * Math.PI);
          this.t.h %= 2 * Math.PI;
          this.t.h < 0 ? this.t.h += 2 * Math.PI : null;
          this.c.h = this.t.h;
       }
       if(getInput('Comma')){
-         this.t.h += 1 / (10 * Math.PI);
+         this.t.h -= 1 / (10 * Math.PI);
          this.t.h %= 2 * Math.PI;
          this.t.h < 0 ? this.t.h += 2 * Math.PI : null;
          this.c.h = this.t.h;
       }
       if(getInput('KeyS')){
-         this.z -= 1;
-         this.c.z -= 1;
-      }
-      if(getInput('KeyW')){
          this.z += 1;
          this.c.z += 1;
       }
+      if(getInput('KeyW')){
+         this.z -= 1;
+         this.c.z -= 1;
+      }
       if(getInput('KeyA')){
-         this.t.h += 1 / (10 * Math.PI);
+         this.t.h -= 1 / (5 * Math.PI);
          this.t.h %= 2 * Math.PI;
          this.t.h < 0 ? this.t.h += 2 * Math.PI : null;
          this.c.h = this.t.h;
@@ -149,7 +148,7 @@ class Ball{
          this.c.x -= 1;
       }
       if(getInput('KeyD')){
-         this.t.h -= 1 / (10 * Math.PI);
+         this.t.h += 1 / (5 * Math.PI);
          this.t.h %= 2 * Math.PI;
          this.t.h < 0 ? this.t.h += 2 * Math.PI : null;
          this.c.h = this.t.h;
@@ -172,9 +171,9 @@ class Ball{
    render(){
       this.handleInput();
       
-      this.faces.sort((a, b) => (a.renderBias) - (b.renderBias));
+      this.faces.sort((a, b) => (b.renderBias) - (a.renderBias));
       // this.faces.sort((a, b) => (b.renderBias) - (a.renderBias));
-      this.faces.forEach(f => f != null ? f.render(0b00, true, (this.faces.length - this.faces.indexOf(f)) / this.faces.length * 20) : null);
+      this.faces.forEach(f => f != null ? f.render(0b00, true, (this.faces.length - this.faces.indexOf(f)) / this.faces.length * 15) : null);
       log((this.c.v / Math.PI).toFixed(2) + 'π');
    }
 }

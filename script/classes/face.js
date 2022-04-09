@@ -79,7 +79,7 @@ class LegacyFace{
       
       this.updatePositionAbsolute();
       
-      this.isRenderable = (d + this.zAvg > cameraProximityThreshold);
+      this.isRenderable = (d - this.zAvg > cameraProximityThreshold);
    }
    render(border, shade, depthShade = false){
       
@@ -87,7 +87,7 @@ class LegacyFace{
       
       this.updatePositionAbsolute();
       
-      this.isRenderable = (d + this.zAvg > cameraProximityThreshold);
+      this.isRenderable = (d - this.zAvg > cameraProximityThreshold);
       
       let renderBorder = true;
       let borderColor = null;
@@ -135,9 +135,9 @@ class LegacyFace{
       
       // Draw faces
       ctx.beginPath();
-      ctx.moveTo(this.vtx[0].x * (d / (d + this.vtx[0].z)), this.vtx[0].y * (d / (d + this.vtx[0].z)));
+      ctx.moveTo(this.vtx[0].x * (d / (d - this.vtx[0].z)), this.vtx[0].y * (d / (d - this.vtx[0].z)));
       for(let v = 0; v < this.vtx.length; v++){
-         ctx.lineTo(this.vtx[v].x * (d / (d + this.vtx[v].z)), this.vtx[v].y * (d / (d + this.vtx[v].z)));
+         ctx.lineTo(this.vtx[v].x * (d / (d - this.vtx[v].z)), this.vtx[v].y * (d / (d - this.vtx[v].z)));
       }
       ctx.closePath();
       ctx.fillStyle = this.clr;
@@ -153,13 +153,13 @@ class LegacyFace{
       
       // Apply shadows
       if(renderShade){
-         let shadeStrength = ((d + this.vtx[0].z) / d) / ((cameraProximityThreshold) / 25) / 2;
+         let shadeStrength = ((d - this.vtx[0].z) / d) / ((cameraProximityThreshold) / 25) / 2;
          shadeStrength += 0.05;
          let shadeLayer = `rgba(${shadeColor[0]},${shadeColor[1]},${shadeColor[2]},${shadeStrength})`;
          ctx.beginPath();
-         ctx.moveTo(this.vtx[0].x * (d / (d + this.vtx[0].z)), this.vtx[0].y * (d / (d + this.vtx[0].z)));
+         ctx.moveTo(this.vtx[0].x * (d / (d - this.vtx[0].z)), this.vtx[0].y * (d / (d - this.vtx[0].z)));
          for(let v = 1; v < this.vtx.length; v++){
-            ctx.lineTo(this.vtx[v].x * (d / (d + this.vtx[v].z)), this.vtx[v].y * (d / (d + this.vtx[v].z)));
+            ctx.lineTo(this.vtx[v].x * (d / (d - this.vtx[v].z)), this.vtx[v].y * (d / (d - this.vtx[v].z)));
          }
          ctx.closePath();
          ctx.strokeStyle = shadeLayer;
