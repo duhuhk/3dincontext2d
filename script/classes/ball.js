@@ -66,7 +66,7 @@ class Ball{
       
       for(let i = 0; i < topRow.length; i++){
          let j = i + 1 == topRow.length ? 0 : i + 1;
-         this.faces.push(new LegacyFace([AAA, topRow[i], topRow[j]], this.c, faceColor, faceShade));
+         this.faces.push(new LegacyFace([AAA, topRow[i], topRow[j]], this.c, errTxrStr(), faceShade));
       }
       getErrTexture();
       
@@ -81,10 +81,10 @@ class Ball{
             
             // More faces, horrible performance, same result
             // just looks ever so slightly cooler
-            // this.faces.push(new LegacyFace([vertices[i][j], vertices[ya][xa], vertices[yb][xb]], this.c, faceColor, faceShade));
-            // this.faces.push(new LegacyFace([vertices[i][j], vertices[ya][xa], vertices[yc][xc]], this.c, faceColor, faceShade));
+            // this.faces.push(new LegacyFace([vertices[i][j], vertices[ya][xa], vertices[yb][xb]], this.c, errTxrStr(), faceShade));
+            // this.faces.push(new LegacyFace([vertices[i][j], vertices[ya][xa], vertices[yc][xc]], this.c, errTxrStr(), faceShade));
             
-            this.faces.push(new LegacyFace([vertices[i][j], vertices[ya][xa], vertices[ya][xb], vertices[yb][xb]], this.c, faceColor, faceShade));
+            this.faces.push(new LegacyFace([vertices[i][j], vertices[ya][xa], vertices[ya][xb], vertices[yb][xb]], this.c, errTxrStr(), faceShade));
             // hecto-enneaconta-di-hedron myeeeh myeeeh
          }
          getErrTexture();
@@ -92,7 +92,7 @@ class Ball{
       
       for(let i = 0; i < botRow.length; i++){
          let j = i + 1 == botRow.length ? 0 : i + 1;
-         this.faces.push(new LegacyFace([AAB, botRow[i], botRow[j]], this.c, faceColor, faceShade));
+         this.faces.push(new LegacyFace([AAB, botRow[i], botRow[j]], this.c, errTxrStr(), faceShade));
       }
       
       /*

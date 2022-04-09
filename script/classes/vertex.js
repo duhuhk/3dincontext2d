@@ -23,7 +23,10 @@ class Vertex{
    }
    get x(){
       this.CORE_VALUES.x = this.r * Math.cos(this.v - this.c.v) * Math.cos(this.h - this.c.h);
-      return this.CORE_VALUES.x + this.c.x;
+      // return this.CORE_VALUES.x + this.c.x;
+      // return this.c.x - this.CORE_VALUES.x;
+      // ^ Match pre-(d / (d +- z))-swap positional order (-c.z + z = -(c.z - z))
+      
       // this.CORE_VALUES.x = (this.r + this.c.x) * Math.cos(this.v - this.c.v) * Math.cos(this.h - this.c.h);
       // return this.CORE_VALUES.x;
    }
@@ -31,7 +34,10 @@ class Vertex{
       // if(Math.random() < 0.1 && Math.random() < 0.5) log(this.CORE_VALUES.y + this.c.y - this.CORE_VALUES.z);
       this.CORE_VALUES.y = this.r * Math.sin(this.v - this.c.v);
       // return this.CORE_VALUES.y + this.c.y - (this.CORE_VALUES.z * Math.sin(this.v - this.c.v));
-      return this.CORE_VALUES.y + this.c.y;
+      // return this.CORE_VALUES.y + this.c.y;
+      // return this.c.y - this.CORE_VALUES.y;
+      // ^ Match pre-(d / (d +- z))-swap positional order (-c.z + z = -(c.z - z))
+      
       // return this.CORE_VALUES.y + this.c.y;
       // this.CORE_VALUES.y = (this.r + this.c.y) * Math.sin(this.v - this.c.v);
       // return this.CORE_VALUES.y - (this.CORE_VALUES.z * Math.sin(this.v - this.c.v));
@@ -39,7 +45,10 @@ class Vertex{
    get z(){
       this.CORE_VALUES.z = (this.r * Math.cos(this.v - this.c.v) * Math.sin(this.h - this.c.h));
       // return this.CORE_VALUES.z + this.c.z - (this.CORE_VALUES.y * Math.cos(this.v - this.c.v));
-      return this.CORE_VALUES.z + this.c.z;
+      // return this.CORE_VALUES.z + this.c.z;
+      // return this.c.z - this.CORE_VALUES.z;
+      // ^ Match pre-(d / (d +- z))-swap positional order (-c.z + z = -(c.z - z))
+      
       // return this.CORE_VALUES.z + this.c.z;
       // this.CORE_VALUES.z = ((this.r + this.c.z) * Math.cos(this.v - this.c.v) * Math.sin(this.h - this.c.h));
       // return this.CORE_VALUES.z - (this.CORE_VALUES.y * Math.cos(this.v - this.c.v));
