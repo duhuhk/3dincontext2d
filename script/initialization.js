@@ -1,5 +1,4 @@
 function initializeRender(){
-   alert('this is working');
    try{
       /*
       // Initial block used in testing; not very good using updated scripts
