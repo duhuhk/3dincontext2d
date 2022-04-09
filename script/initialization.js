@@ -1,12 +1,20 @@
-function initializeRender(){   
+function initializeRender(){
+   alert('this is working');
    try{
-      // let dummyblock0 = new Block(0, 0, 450, 50, 50, 50, Math.PI / 2, 0);
-      // dummyblock0.initialize();
-      
-      // let dummyTooth = new Tooth(0, 0, 450, 50, 50, 50, Math.PI / 2, 0);
-      // dummyTooth.initialize();
+      /*
+      // Initial block used in testing; not very good using updated scripts
+      let dummyblock0 = new Block(0, 0, 450, 50, 50, 50, Math.PI / 2, 0);
+      dummyblock0.initialize();
+      */
       
       /*
+      // Was going to be a tooth, now just a crown thing
+      let dummyTooth = new Tooth(0, 0, 450, 50, 50, 50, Math.PI / 2, 0);
+      dummyTooth.initialize();
+      */
+
+      /*
+      // Makes a big, buggy wall
       let dummycolorblock00 = new ColorBlock(0, 0, 450, 50, 50, 50, 0, 0);
       dummycolorblock00.initialize();
       let dummycolorblock01 = new ColorBlock(-14, 0, 450, 50, 50, 50, 0, 0);
@@ -51,6 +59,7 @@ function initializeRender(){
       dummycolorblock20.initialize();
       */
       
+      // D'ya like my balls?
       let dummyball0 = new Ball(0, 0, 450, 15, 0, 0);
       dummyball0.initialize();
       
