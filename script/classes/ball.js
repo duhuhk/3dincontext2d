@@ -174,7 +174,7 @@ class Ball{
       
       this.faces.sort((a, b) => (b.renderBias) - (a.renderBias));
       // this.faces.sort((a, b) => (b.renderBias) - (a.renderBias));
-      this.faces.forEach(f => f != null ? f.render(0b00, true, (this.faces.length - this.faces.indexOf(f)) / this.faces.length * 20) : null);
+      this.faces.forEach(f => f != null ? f.render(0b00, true, (this.faces.length - this.faces.indexOf(f)) / this.faces.length * 10) : null);
       log((this.c.v / Math.PI).toFixed(2) + 'π');
    }
 }
