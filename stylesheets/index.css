@@ -3,8 +3,8 @@ body{
 }
 
 #display-element{
-   width: 960px;
-   height: 540px;
+   width: calc(480px * var(--canvas-dimension-mult));
+   height: calc(270px * var(--canvas-dimension-mult));
    position: absolute;
    margin: 0;
    top: 50%;

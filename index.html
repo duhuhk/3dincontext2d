@@ -2,16 +2,20 @@
 <html>
 <head>
    <title>Test 3D</title>
+   <link rel='stylesheet' href='./stylesheets/root.css'>
    <link rel='stylesheet' href='./stylesheets/index.css'>
+   <link rel='stylesheet' href='./stylesheets/log.css'>
 </head>
 <body>
    <canvas id='display-element' width='960' height='540'></canvas>
    
    <!-- Maybe make this a more full-fledged thing in the future -->
-   <p id='halflog' style='position: absolute; top: 0; left: 0; margin: 0;'>Log:</p>
+   <p id='halflog' class='log-element'>Log:</p>
    
    <!-- Making the halflog a tiny bit more fledged -->
    <script src='./script/log.js' charset='utf-8'></script>
+   <!-- Passing/receiving variables from CSS -->
+   <script src='./script/cssvariables.js' charset='utf-8'></script>
    <!-- Padding integers -->
    <script src='./script/padinteger.js' charset='utf-8'></script>
    <!-- Handling input -->
@@ -19,6 +23,7 @@
    <!-- Drawing -->
    <script src='./script/geterrortexture.js' charset='utf-8'></script>
    <script src='./script/render.js' charset='utf-8'></script>
+   <script src='./script/screensetup.js' charset='utf-8'></script>
    <!-- Converting between color types -->
    <script src='./script/colorconversions.js' charset='utf-8'></script>
    <!-- Geometry toolbox -->

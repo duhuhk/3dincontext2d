@@ -30,12 +30,12 @@ asftElement.checked = true;
 asftElement.style.pointerEvents = 'none';
 asftLabel.innerHTML = 'Allow seamless face rendering';
 document.body.appendChild(asftDiv);
+asftDiv.className = 'log-element';
 asftDiv.style.position = 'absolute';
 asftDiv.style.right = '0';
-asftDiv.style.marginRight = '5px';
+// asftDiv.style.marginRight = '5px';
 asftDiv.style.top = '0';
-asftDiv.style.marginTop = '5px';
-// asftDiv.style.marginLeft = '80%';
+// asftDiv.style.marginTop = '5px';
 asftDiv.appendChild(asftElement);
 asftDiv.appendChild(asftLabel);
 asftDiv.addEventListener('click', e => {
