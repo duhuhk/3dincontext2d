@@ -19,5 +19,4 @@ function screenSetup(){
    console.log('Resized screen (multiplier: ' + dimMult + ')');
 }
 
-screenSetup();
 window.onresize = screenSetup;

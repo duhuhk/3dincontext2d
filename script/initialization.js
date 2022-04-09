@@ -1,4 +1,15 @@
+const __version = document.getElementsByTagName('version')[0].getAttribute('data-ver');
+
+function printDocumentVersion(){
+   console.log('Version ' + __version);
+   log('Version: ' + __version);
+   return __version;
+}
+
 function initializeRender(){
+   printDocumentVersion();
+   screenSetup();
+
    try{
       /*
       // Initial block used in testing; not very good using updated scripts
