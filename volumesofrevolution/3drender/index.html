@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>3D Object Renderer</title>
+   <link rel='stylesheet' href='./stylesheet/basestyle.css'>
+</head>
+<body>
+   <canvas id="render-element" width="960" height="540"></canvas>
+   
+   <span id="log-cont">
+      <b>-== LOG ==-</b>
+      <p id="log"></p>
+   </span>
+   <div id="control">
+      <!-- m == 'emulated keystroke' -->
+      <span id="ctrl-r0">
+         <m id="Q">[Q]: X<sub>p</sub>-</m><m id="W">[W]: X<sub>p</sub>+</m><m id="E">[E]: Z<sub>p</sub>-</m><m id="R">[R]: Y<sub>p</sub>+</m><m id="T">[T]: X<sub>r</sub>+</m>
+      </span><br />
+      <span id="ctrl-r1">
+         <m id="A">[A]: Y<sub>r</sub>-</m><m id="S">[S]: Y<sub>r</sub>+</m><m id="D">[D]: Z<sub>p</sub>+</m><m id="F">[F]: Y<sub>p</sub>-</m><m id="G">[G]: X<sub>r</sub>-</m>
+      </span><br />
+      <span id="ctrl-r2"><m id="Z">[Z]: Z<sub>r</sub>-</m><m id="X">[X]: Z<sub>r</sub>+</m></span><br />
+      <!-- <span id="ctrl-rA"><m id="Z">M.M.M.<sub>M.</m><m id="X">_|_|_|_|</m></span><br /> -->
+      <span id="ctrl-r3"><m id="CV">[C + V]: Auto-spin<sub> </sub>On</m><m id="SPACE">[SPACE]: Auto-spin<sub> </sub>Off</m></span>
+   </div>
+   
+   <!-- Nerdamer -->
+   <script id="nerdamer-library" src="../nerdamer/all.min.js"></script>
+   <!-- Delaying computation -->
+   <script src="./script/delay.js" charset="utf-8"></script>
+   <!-- Handle strings -->
+   <script src="./script/strings.js" charset="utf-8"></script>
+   <!-- Handle CSS variables -->
+   <script src="./script/cssvariables.js" charset="utf-8"></script>
+   <!-- Declare initial variables -->
+   <script src="./script/declaration.js" charset="utf-8"></script>
+   <!-- Custom log -->
+   <script src="./script/log.js" charset="utf-8"></script>
+   <!-- Handle input -->
+   <script src="./script/input.js" charset="utf-8"></script>
+   <!-- Render loop -->
+   <script src="./script/render.js" charset="utf-8"></script>
+   <!-- Classes -->
+   <!-- Basic model building -->
+   <script src="./script/class/point.js" charset="utf-8"></script>
+   <script src="./script/class/center.js" charset="utf-8"></script>
+   <script src="./script/class/vertex.js" charset="utf-8"></script>
+   <script src="./script/class/face.js" charset="utf-8"></script>
+   <script src="./script/class/model.js" charset="utf-8"></script>
+   <!-- Complete shapes -->
+   <script src="./script/class/cube.js" charset="utf-8"></script>
+   <script src="./script/class/function.js" charset="utf-8"></script>
+   
+   <!-- Boot -->
+   <script src="./script/initialization.js" charset="utf-8"></script>
+</body>
+</html>

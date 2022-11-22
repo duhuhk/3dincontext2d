@@ -1,0 +1,167 @@
+:root{
+   --bg-dark: rgb(0,0,0);
+   --bg-dusk: rgb(150,150,150);
+   --bg-light: rgb(255,255,255);
+   --bg-neon: rgb(15,15,15);
+   
+   --txt-dark: rgb(255,255,255);
+   --txt-dusk: rgb(255,255,255);
+   --txt-light: rgb(0,0,0);
+   --txt-neon: rgb(57,255,20);
+   
+   --menu-dark: rgba(100,100,100,0.5);
+   --menu-dusk: rgba(75,75,75,0.5);
+   --menu-light: rgba(160,160,160,0.5);
+   --menu-neon: rgba(50,50,50,0.5);   
+   
+   --bg-active: var(--bg-neon);
+   --txt-active: var(--txt-neon);
+   --menu-active: var(--menu-neon);
+   
+   --log-height: calc(540px - 1.15em - 1.5em);
+
+   --cont-width: calc(12.15 * (2em + 2px + 1em));
+}
+body{
+   background-color: var(--bg-active);
+   color: var(--txt-active);
+   font-family: monospace;
+   /* font-weight: bold; */
+   margin: 0;
+   padding: 0;
+}
+
+#render-element{
+   outline: 1px solid var(--txt-active);
+   position: absolute;
+   left: 50%;
+   margin-top: 0.5em;
+   /*
+   top: 50%; 
+   margin: 0.5em;
+   */
+   width: 960px;
+   height: 540px;
+   background-color: var(--menu-active);
+   
+   transform: translate(-50%, 0);
+}
+
+#control{
+   position: absolute;
+   left: 50%;
+   bottom: 0;
+   margin-bottom: 0.5em;
+   
+   font-family: monospace;
+   outline: 1px solid var(--txt-active);
+   background-color: var(--menu-active);
+   transform: translate(-50%, 0);
+   
+   opacity: 40%;
+   
+   padding-left: 1em;
+   padding-right: 0;
+
+   /* min-width: 499px; */
+   min-width: var(--cont-width);
+   /* min-width: 500px; */
+}
+#control:hover{
+   opacity: 100%;
+}
+#control m{
+   font-family: monospace;
+   display: inline-block;
+   box-sizing: border-box;
+   margin: 0;
+   /* margin-left: 1.5em; */
+   margin-right: calc(2em + 2px);
+   padding: 0.2em;
+   padding-left: 0.5em;
+   padding-right: 0.5em;
+   outline: 1px dotted var(--txt-active);
+   background-color: var(--menu-active);
+   cursor: pointer;
+}
+#control m:hover{
+   outline: 1px solid var(--txt-active);
+   font-weight: bold;
+   padding-top: 0.1em;
+   padding-bottom: 0.1em;
+   box-shadow: 0 0 3px 2px var(--txt-active), 0 0 20px 0 inset var(--txt-active);
+}
+#control span{
+   display: inline-block;
+   margin-top: 0.2em;
+   margin-bottom: 0.2em;
+   padding-left: 1em;
+   padding-right: -0.5em;
+}
+
+#log-cont{
+   position: absolute;
+   display: none;
+   top: 0;
+   left: 0;
+   margin: 0.5em;
+   text-align: left;
+   font-family: monospace;
+   /* padding: 0.2em; */
+   outline: 1px solid var(--txt-active);
+   background-color: var(--menu-active);
+   width: calc(100% - 960px - 1.5em - 0.2em);
+   max-height: calc(100% - 1.5em + 0.8em - 0.2em);
+}
+#log-cont b{
+   /* background-color: var(--menu-active); */
+   background-color: rgba(0,0,0,0.1);
+   text-align: center;
+   /* width: calc(100% + 0.4em); */
+   width: 100%;
+   display: block;
+   font-size: 1.15em;
+   /* margin-left: -0.2em;
+   margin-top: -0.2em; */
+   padding-top: 0.2em;
+   padding-bottom: 0;
+   margin-bottom: -1em;
+   border-bottom: 1px dotted var(--txt-active);
+}
+/* #log-cont b::after{ */
+#log{
+   /* outline: 1px solid red; */
+   position: relative;
+   display: block;
+   margin: 0;
+   top: 0;
+   left: 0;
+   /* margin-top: calc(0.4em + 1.15em); */
+   margin-top: 1.15em;
+   /* margin-bottom: 0.4em; */
+   max-height: var(--log-height);
+   /* v Gives slight border between log and cont v */
+   /* | Also gives room for padding to allow the |
+      V text to move out of the scrollbar's way  V */
+   width: calc(100% - 2em);
+   padding-left: 1em;
+   padding-right: 1em;
+   padding-top: 0.1em;
+   padding-bottom: 0.1em;
+   word-wrap: break-word;
+   overflow: auto;
+   /* box-shadow: 0 0 3px 2px var(--txt-active); */
+}
+#log span:nth-of-type(odd)::after{
+   /* outline: 1px solid var(--txt-active); */
+   position: absolute;
+   background-color: var(--menu-active);
+   color: var(--menu-active);
+   opacity: 33%;
+   content: '.';
+   width: 100%;
+   left: 0;
+}
+.temporary-log{
+   /* background-color: red; */
+}
