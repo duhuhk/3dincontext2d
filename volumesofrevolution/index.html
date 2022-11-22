@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Volumes of Revolution</title>
+      <link rel='stylesheet' href='./stylesheet.css'>
+   </head>
+   <body>
+      <div id="calculation-curtain">
+         <span id="calculation-curtain-inner">
+            <img id="calculation-animation" src="./resources/calculating_256.gif">
+            <br />
+            <code id="calculation-flavor-text">Calculating. . .</code>
+         </span>
+      </div>
+
+      <div id="definition-container">
+         <code id="define-f" class="definer"><label for="f-of-x"><i>f</i>(<i>x</i>) = </label><input id='f-of-x' class="definition-input" type="text" value="x"><p class="color-input-container"><input id="f-color" type="color" value="#ff0000" class="color-input"></p></code>
+         <br />
+         <code id="define-g" class="definer"><label for="g-of-x"><i>g</i>(<i>x</i>) = </label><input id='g-of-x' class="definition-input" type="text" value="x^2"><p class="color-input-container"><input id="g-color" type="color" value="#0000ff" class="color-input"></p></code>
+         <br />
+         <code id="define-step" class="definer"><label for="step">Step: </label><input id="step" class="definition-input" type="text" value="0.05"></code>
+         <br />
+         <code id="define-range" class="definer"><input id="range-lower" class="definition-input" type="text" value="0"> &le; <i>y</i> &le; <input id="range-upper" class="definition-input" type="text" value="1"></code>
+         <br />
+         <code id="define-domain" class="definer"><input id="domain-lower" class="definition-input" type="text" value="0"> &le; <i>x</i> &le; <input id="domain-upper" class="definition-input" type="text" value="1"></code>
+      </div>
+
+      <!-- <hr /><br /> -->
+
+      <code id="f-equals-g-container" class="definer">
+         <br />
+         <sub class="f-equals-hint">LEFT CLICK: set to upper x bound &nbsp;●&nbsp; MIDDLE CLICK: set to x bound with x=0 &nbsp;●&nbsp; RIGHT CLICK: set to lower x bound &nbsp;●&nbsp;  SHIFT: prevent y bound change</sub> <br />
+         <i>f</i>(<i>x</i>) = <i>g</i>(<i>x</i>) for <i>x</i> = <span id="f-equals-g">undefined</span>
+      </code>
+
+      <hr /><br />
+
+      <div id="canvas-container">
+         <canvas id="preview-2d" width="500" height="500"></canvas>
+      </div>
+      
+      <br /><hr /><br />
+      
+      <code id="r-step-cont" class="definer"><label for="r-step">Rotational Step: </label><input id='r-step' class="definition-input" type="text" value="1/6"> <p class="color-input-container">× π</p></code>
+      <br />
+      <button id="make-it-3d" class="definition-input">Revolve it!</button>
+      
+      <!-- Importing external algebra library -->
+      <script id="nerdamer-library" src="./nerdamer/all.min.js"></script>
+
+      <!-- Add ability to delay async scripts-->
+      <script src="./script/pause.js"></script>
+      <!-- Setting up thing to convert input to actual function -->
+      <script src="./script/inputtonerdamer.js"></script>
+      <!-- Toggling the calculation curtain -->
+      <script src="./script/togglecalculationcurtain.js"></script>
+      <!-- Rendering functions on 2D plane -->
+      <script src="./script/renderpreview.js"></script>
+      <!-- Open the 3D Renderer -->
+      <script>
+         const openRender3D = document.querySelector('#make-it-3d');
+         openRender3D.addEventListener('click', e => {
+            var buildFunctions = {
+               u: xUpperBound,
+               l: xLowerBound,
+               s: step,
+               f: fIsSet ? String(input_f.value).split(' ').join('') : false,
+               F: color_f.value,
+               g: gIsSet ? String(input_g.value).split(' ').join('') : false,
+               G: color_g.value,
+               r: rotStep,
+            };
+            var passData = 'fnData=' + JSON.stringify(buildFunctions).split('%22').join('\\"');
+            var render3DWindow = window.open('./3drender/index.html?' + passData, '3D Revolution', 'width=1000');
+            render3DWindow.href = './3drender/index.html?' + passData;
+         });
+      </script>
+   </body>
+</html>
